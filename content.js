@@ -1,5 +1,10 @@
 function run(hide) {
     if (hide != "") {
+		$.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
         var jqHide = '\'' + hide + '\''  ;
         console.log("hiding: " + jqHide);
         $("a.result-title:contains("+jqHide+")").next("span").children("span.banish").click();
