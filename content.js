@@ -1,8 +1,8 @@
 function run(hide) {
     if (hide != "") {
-        var jqHide = "span.txt:contains('" + hide + "')";
-        console.log("hiding: " + hide);
-        $(jqHide).find("span.banish").click();
+        var jqHide = '\'' + hide + '\''  ;
+        console.log("hiding: " + jqHide);
+        $("a.result-title:contains("+jqHide+")").next("span").children("span.banish").click();
     }
 }
 
